@@ -351,7 +351,7 @@ RUN set -ex \
     && update-alternatives --install /usr/bin/ant ant /opt/apache-ant-$ANT_VERSION/bin/ant 10000 \
     # Install Maven
     && mkdir -p $MAVEN_HOME \
-    && curl -LSso /var/tmp/apache-maven-$MAVEN_VERSION-bin.tar.gz https://apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz \
+    && curl -LSso /var/tmp/apache-maven-$MAVEN_VERSION-bin.tar.gz https://archive.apache.org/dist/maven/maven-3/3.6.1/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz \
     && echo "$MAVEN_DOWNLOAD_SHA512 /var/tmp/apache-maven-$MAVEN_VERSION-bin.tar.gz" | sha512sum -c - \
     && tar xzvf /var/tmp/apache-maven-$MAVEN_VERSION-bin.tar.gz -C $MAVEN_HOME --strip-components=1 \
     && update-alternatives --install /usr/bin/mvn mvn /opt/maven/bin/mvn 10000 \
@@ -515,7 +515,7 @@ RUN set -ex \
 
 RUN set -ex \
    && yum install -y openssl \
-   && curl -o stunnel-5.55.tar.gz https://www.stunnel.org/downloads/stunnel-5.55.tar.gz \
+   && curl -o stunnel-5.55.tar.gz https://www.stunnel.org/downloads/archive/5.x/stunnel-5.55.tar.gz \
    && tar xvfz stunnel-5.55.tar.gz \
    && cd stunnel-5.55 \
    && ./configure \
